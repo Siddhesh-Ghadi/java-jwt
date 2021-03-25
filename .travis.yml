@@ -1,0 +1,15 @@
+arch:
+  - ppc64le
+  
+language: java
+
+dist: bionic
+
+before_install:
+  - sudo wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
+  - sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+  - sudo rm -rf /var/lib/apt/lists/*
+  - sudo apt-get update -y
+  - sudo apt install adoptopenjdk-8-hotspot -y
+  - sudo apt remove adoptopenjdk-11-hotspot -y
+  - java -version
